@@ -311,6 +311,24 @@ Transform:
   m_Father: {fileID: 1041286197}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &438698646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1787459692083310, guid: 93fb048d0136f084cb1f783ca99e5ea7, type: 3}
+  m_PrefabInstance: {fileID: 476495312}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &438698649
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438698646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7452543, y: 2.287663, z: 0.9199234}
+  m_Center: {x: 0.012508988, y: 0.98848367, z: -0.093307674}
 --- !u!1001 &476495312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1033,6 +1051,24 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1606140071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1303171181363726, guid: 88bae2de7f0014e4fa5e93fd72610be7, type: 3}
+  m_PrefabInstance: {fileID: 1521074001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1606140072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606140071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fc61e341666ed4f82ec57ebc5d1d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootRange: 300
 --- !u!1 &1846679974
 GameObject:
   m_ObjectHideFlags: 0
