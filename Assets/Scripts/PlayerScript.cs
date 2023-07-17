@@ -11,12 +11,28 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
-        _characterController = gameObject.GetComponent<CharacterController>();   
+        _characterController = gameObject.GetComponent<CharacterController>();
+
+        //hide cursor
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
         PlayerMovement();
+
+        //to unclock cursor
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+          UnlockCursor();  
+        }
+        
+    }
+
+    private void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void PlayerMovement()
