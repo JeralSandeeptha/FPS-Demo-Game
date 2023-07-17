@@ -34,6 +34,9 @@ public class PlayerScript : MonoBehaviour
         //should decrement gravity scale from velocity y axis
         _velocity.y -= _gravity;
 
+        //set local space to global space
+        _velocity = transform.transform.TransformDirection(_velocity);
+
         //charactor move
         _characterController.Move(_velocity * Time.deltaTime);
     }
