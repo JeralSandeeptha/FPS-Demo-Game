@@ -21,13 +21,16 @@ public class PlayerScript : MonoBehaviour
 
     private void PlayerMovement()
     {
+        float _horizontalInput = Input.GetAxis("Horizontal");
+        float _verticalInput = Input.GetAxis("Vertical");
+
         //Vector for player
-        Vector3 _direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        Vector3 _direction = new Vector3(_horizontalInput, 0f, _verticalInput);
 
         //increment by speed
         Vector3 _velocity = _direction * _speed;
 
-        //apply gravity
+        //apply gravity because we dont use rigidbody with charactor controller. Its not physics base
         //should decrement gravity scale from velocity y axis
         _velocity.y -= _gravity;
 
