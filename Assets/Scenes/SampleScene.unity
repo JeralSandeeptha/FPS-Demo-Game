@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: FP Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1363,6 +1363,7 @@ MonoBehaviour:
   _muzzleFlashFX: {fileID: 5931037}
   _hitImpactFX: {fileID: 1278410308571632, guid: 0dca392d0ad60af418c1bace1abde0c6, type: 3}
   _shootSound: {fileID: 8300000, guid: fe8a9b071dcb76c419fb6a53d47deb1e, type: 3}
+  _fpCamera: {fileID: 963194227}
 --- !u!82 &1606140073
 AudioSource:
   m_ObjectHideFlags: 0

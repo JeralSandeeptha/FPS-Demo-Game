@@ -9,13 +9,21 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private ParticleSystem _muzzleFlashFX;
     [SerializeField] private GameObject _hitImpactFX;
     [SerializeField] private AudioClip _shootSound;
+    [SerializeField] private Camera _fpCamera;
 
     private AudioSource _audioSource;
+
+    private float _normalFOV = 60f;
+    private float _zoomFOV = 20f;
+
+    private bool _isZoomedIn = false;
 
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
     }
+
+    //if we hit RMB we shoulf zoom in weapon
 
     void Update()
     {
@@ -32,6 +40,19 @@ public class WeaponScript : MonoBehaviour
         else {
             _muzzleFlashFX.Stop();
             _audioSource.Stop();
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (_isZoomedIn == false)
+            {
+                _fpCamera.fieldOfView = _zoomFOV;
+                _isZoomedIn = true;
+            }
+            else {
+                _fpCamera.fieldOfView = _normalFOV;
+                _isZoomedIn = false;
+            }
         }
     }
 
