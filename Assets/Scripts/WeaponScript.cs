@@ -8,10 +8,13 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private float _shootRange = 300f;
     [SerializeField] private ParticleSystem _muzzleFlashFX;
     [SerializeField] private GameObject _hitImpactFX;
+    [SerializeField] private AudioClip _shootSound;
+
+    private AudioSource _audioSource;
 
     void Start()
     {
-        
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -20,9 +23,15 @@ public class WeaponScript : MonoBehaviour
         {
             PlayerShoot();
             _muzzleFlashFX.Play();
+
+            if (!_audioSource.isPlaying)
+            {
+                _audioSource.PlayOneShot(_shootSound);
+            }
         }
         else {
             _muzzleFlashFX.Stop();
+            _audioSource.Stop();
         }
     }
 
@@ -31,7 +40,6 @@ public class WeaponScript : MonoBehaviour
         RaycastHit _hitinfo;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out _hitinfo, _shootRange))//this is a bool
         {
-            print("I shoot " + _hitinfo.transform.name);
             //create hit impact
             CreateHitImpact(_hitinfo);
         }
