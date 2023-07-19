@@ -47,9 +47,10 @@ public class WeaponScript : MonoBehaviour
 
         WeaponZoom();
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && _isReloading == false)
         {
             StartCoroutine(WeaponReload());
+            _isReloading = true;
         }
 
     }
@@ -99,5 +100,6 @@ public class WeaponScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         _currentAmmoCount = _maxAmmoCount;
+        _isReloading = false;
     }
 }
