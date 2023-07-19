@@ -19,10 +19,16 @@ public class WeaponScript : MonoBehaviour
     private bool _isZoomedIn = false;
     private bool _isReloading = false;
 
+    //create a regerence to the UIManager Scipt
+    private UIManager _uiManager;
+
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         _currentAmmoCount = _maxAmmoCount;
+
+        //init UI manager script
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
     //if we hit RMB we should zoom in weapon / Its toggle functanality
@@ -52,7 +58,6 @@ public class WeaponScript : MonoBehaviour
             StartCoroutine(WeaponReload());
             _isReloading = true;
         }
-
     }
 
     private void WeaponZoom()
@@ -81,7 +86,8 @@ public class WeaponScript : MonoBehaviour
                 //create hit impact
                 CreateHitImpact(_hitinfo);
                 _currentAmmoCount--;
-            }
+                _uiManager.UpdateAmmo(_currentAmmoCount);
+        }
             else
             {
                 return;
@@ -101,5 +107,6 @@ public class WeaponScript : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         _currentAmmoCount = _maxAmmoCount;
         _isReloading = false;
+        _uiManager.UpdateAmmo(_currentAmmoCount);
     }
 }
